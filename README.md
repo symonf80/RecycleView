@@ -1,3 +1,3 @@
 
-## Задача MVVM
+## Задача. RecyclerView
 
