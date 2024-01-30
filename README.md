@@ -1,3 +1,3 @@
 
-## Задача. RecyclerView
+## Задача CRUD
 
