@@ -8,7 +8,6 @@ import androidx.activity.viewModels
 import ru.netology.nmedia.R
 import ru.netology.nmedia.adapter.OnInteractionListener
 import ru.netology.nmedia.adapter.PostsAdapter
-import ru.netology.nmedia.service.Service
 import ru.netology.nmedia.databinding.ActivityMainBinding
 import ru.netology.nmedia.repository.Post
 import ru.netology.nmedia.util.AndroidUtils
@@ -70,6 +69,7 @@ class MainActivity : AppCompatActivity() {
             AndroidUtils.hideKeyboard(it)
         }
         binding.close.setOnClickListener {
+            viewModel.closeEdited(it)
             binding.group.visibility = View.GONE
             binding.edit.setText("")
             binding.edit.clearFocus()

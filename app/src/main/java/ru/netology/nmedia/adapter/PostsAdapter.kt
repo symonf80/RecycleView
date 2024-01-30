@@ -26,7 +26,7 @@ class PostsAdapter(
 ) : ListAdapter<Post, PostViewHolder>(PostDiffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
-        val view = CardPostBinding.inflate(LayoutInflater.from(parent.context))
+        val view = CardPostBinding.inflate(LayoutInflater.from(parent.context),parent,false)
         return PostViewHolder(view, onInteractionListener)
     }
 
