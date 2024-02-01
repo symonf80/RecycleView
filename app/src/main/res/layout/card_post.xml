@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="@dimen/size16dp"
-   >
+    android:padding="@dimen/size16dp">
 
     <ImageView
         android:id="@+id/avatar"
@@ -56,15 +55,16 @@
         app:layout_constraintTop_toBottomOf="@id/barrier"
         tools:text="@sample/posts.json/data/content" />
 
-    <ImageButton
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/menu"
-        android:layout_width="@dimen/size24dp"
-        android:layout_height="@dimen/size24dp"
-        android:background="@android:color/transparent"
+        style="@style/Widget.AppTheme.MenuButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:importantForAccessibility="no"
+        app:icon="@drawable/condition_of_menu"
+        app:layout_constraintBottom_toBottomOf="@+id/avatar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/avatar"
-        app:srcCompat="@drawable/menu" />
+        app:layout_constraintTop_toTopOf="@+id/avatar" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrier2"
@@ -74,51 +74,36 @@
         app:barrierMargin="@dimen/size16dp"
         app:constraint_referenced_ids="content" />
 
-    <ImageButton
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/likes"
-        android:layout_width="@dimen/size48dp"
-        android:layout_height="@dimen/size48dp"
-        android:background="@android:color/transparent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/Widget.AppTheme.LikeButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/likes"
-        app:layout_constraintTop_toBottomOf="@id/barrier2"/>
-
-    <TextView
-        android:id="@+id/tvlikes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/likes"
-        app:layout_constraintStart_toEndOf="@+id/likes"
-        app:layout_constraintTop_toTopOf="@+id/likes"
-        tools:text="50" />
-
-    <ImageButton
-        android:id="@+id/share"
-        android:layout_width="@dimen/size48dp"
-        android:layout_height="@dimen/size48dp"
-        android:layout_marginStart="@dimen/size16dp"
-        android:background="@android:color/transparent"
-        app:layout_constraintStart_toEndOf="@+id/tvlikes"
         app:layout_constraintTop_toBottomOf="@id/barrier2"
-        app:srcCompat="@drawable/share" />
+        android:checkable="true"
+        app:icon="@drawable/condition_of_like" />
 
-    <TextView
-        android:id="@+id/tvShare"
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/share"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/share"
-        app:layout_constraintStart_toEndOf="@+id/share"
-        app:layout_constraintTop_toTopOf="@+id/share"
-        tools:text="333" />
+        android:layout_marginStart="@dimen/size16dp"
+        style="@style/Widget.AppTheme.ShareButton"
+        android:checkable="true"
+        app:layout_constraintStart_toEndOf="@+id/likes"
+        app:layout_constraintTop_toBottomOf="@id/barrier2"
+        app:icon="@drawable/condition_of_share" />
 
     <ImageView
         android:id="@+id/views"
-        android:layout_width="@dimen/size24dp"
-        android:layout_height="@dimen/size24dp"
-        android:layout_marginTop="@dimen/size16dp"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
         android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/share"
         app:layout_constraintEnd_toStartOf="@+id/tvViews"
-        app:layout_constraintTop_toBottomOf="@id/barrier2"
+        app:layout_constraintTop_toTopOf="@+id/share"
         app:srcCompat="@drawable/views" />
 
     <TextView

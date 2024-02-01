@@ -10,6 +10,7 @@ import ru.netology.nmedia.R
 import ru.netology.nmedia.databinding.CardPostBinding
 import ru.netology.nmedia.repository.Post
 import ru.netology.nmedia.service.Service
+
 interface OnInteractionListener {
     fun onLike(post: Post)
     fun onShare(post: Post)
@@ -26,7 +27,7 @@ class PostsAdapter(
 ) : ListAdapter<Post, PostViewHolder>(PostDiffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
-        val view = CardPostBinding.inflate(LayoutInflater.from(parent.context),parent,false)
+        val view = CardPostBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return PostViewHolder(view, onInteractionListener)
     }
 
@@ -50,12 +51,10 @@ class PostViewHolder(
             author.text = post.author
             published.text = post.published
             content.text = post.content
-            tvlikes.text = service.counter(post.likes)
-            tvShare.text = service.counter(post.repost)
+            likes.text = service.counter(post.likes)
+            share.text = service.counter(post.repost)
             tvViews.text = service.counter(post.views)
-            likes.setImageResource(
-                if (post.likedByMe) R.drawable.baseline_favorite_24 else R.drawable.likes
-            )
+            likes.isChecked = post.likedByMe
 
             likes.setOnClickListener {
                 onInteractionListener.onLike(post)
@@ -73,10 +72,12 @@ class PostViewHolder(
                                 onInteractionListener.onRemove(post)
                                 true
                             }
+
                             R.id.edit -> {
                                 onInteractionListener.onEdit(post)
                                 true
                             }
+
                             else -> false
                         }
                     }

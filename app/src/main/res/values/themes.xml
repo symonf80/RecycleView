@@ -1,9 +1,27 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.NMedia" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+    <style name="Theme.NMedia" parent="Base.Theme.NMedia" />
+
+    <style name="Widget.AppTheme.LikeButton" parent="Widget.Material3.Button.TextButton.Icon">
+        <item name="iconTint">@color/like_tint</item>
+        <item name="backgroundTint">@android:color/transparent</item>
+        <item name="iconSize">32dp</item>
     </style>
 
-    <style name="Theme.NMedia" parent="Base.Theme.NMedia" />
+    <style name="Widget.AppTheme.ShareButton" parent="Widget.Material3.Button.TextButton.Icon">
+        <item name="iconTint">@color/share_tint</item>
+        <item name="backgroundTint">@android:color/transparent</item>
+        <item name="iconSize">32dp</item>
+    </style>
+
+    <style name="Widget.AppTheme.MenuButton" parent="Widget.Material3.Button.IconButton">
+        <item name="iconTint">@color/menu_tint</item>
+        <item name="backgroundTint">@android:color/transparent</item>
+        <item name="iconSize">32dp</item>
+    </style>
 </resources>
