@@ -8,4 +8,6 @@
     <string name="empty_post">Пост не должен быть пустым</string>
     <string name="edit_message">Редактировать сообщение</string>
     <string name="netology">Нетология</string>
+    <string name="close">Закрыть</string>
+    <string name="external_link">Внешняя ссылка</string>
 </resources>

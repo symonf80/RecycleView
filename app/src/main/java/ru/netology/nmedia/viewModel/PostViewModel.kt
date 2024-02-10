@@ -15,13 +15,14 @@ val empty = Post(
     published = "",
     likes = 0,
     repost = 0,
-    views = 0
+    views = 0,
+    video = null
 )
 
 class PostViewModel : ViewModel() {
     private val repository: PostRepository = PostRepositoryInMemoryImpl()
     val data = repository.getAll()
-    val edited = MutableLiveData(empty)
+    var edited = MutableLiveData(empty)
 
     fun changeContentAndSave(content: String) {
         edited.value?.let {
@@ -39,7 +40,4 @@ class PostViewModel : ViewModel() {
         edited.value = post
     }
 
-    fun closeEdited(post: View) {
-        edited.value = empty
-    }
 }

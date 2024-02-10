@@ -5,6 +5,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+
     <style name="Theme.NMedia" parent="Base.Theme.NMedia" />
 
     <style name="Widget.AppTheme.LikeButton" parent="Widget.Material3.Button.TextButton.Icon">
@@ -24,4 +25,12 @@
         <item name="backgroundTint">@android:color/transparent</item>
         <item name="iconSize">32dp</item>
     </style>
+
+    <style name="Widget.AppTheme.PlayButton" parent="Widget.Material3.Button.IconButton">
+        <item name="icon">@drawable/baseline_play_circle_outline_24</item>
+        <item name="iconTint">@color/menu_tint</item>
+        <item name="backgroundTint">@android:color/transparent</item>
+        <item name="iconSize">@dimen/size48dp</item>
+    </style>
+
 </resources>

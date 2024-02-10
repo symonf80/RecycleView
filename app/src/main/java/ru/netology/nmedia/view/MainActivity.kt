@@ -1,12 +1,16 @@
 package ru.netology.nmedia.view
 
+import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.activity.result.launch
 import androidx.activity.viewModels
 import ru.netology.nmedia.R
 import ru.netology.nmedia.adapter.OnInteractionListener
+import ru.netology.nmedia.adapter.PostViewHolder
 import ru.netology.nmedia.adapter.PostsAdapter
 import ru.netology.nmedia.databinding.ActivityMainBinding
 import ru.netology.nmedia.repository.Post
@@ -21,6 +25,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val viewModel: PostViewModel by viewModels()
+
+        val newPostLauncher = registerForActivityResult(NewPostContract) { result ->
+            result ?: return@registerForActivityResult
+            viewModel.changeContentAndSave(result)
+
+
+        }
         val adapter = PostsAdapter(object : OnInteractionListener {
             override fun onLike(post: Post) {
                 viewModel.likeById(post.id)
@@ -35,9 +46,16 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onEdit(post: Post) {
-                binding.group.visibility = View.VISIBLE
                 viewModel.edit(post)
             }
+
+            override fun onPlay(post: Post) {
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(post.video))
+                val viewIntent = Intent.createChooser(intent, R.string.external_link.toString())
+                startActivity(viewIntent)
+            }
+
+
         })
         binding.list.adapter = adapter
         viewModel.data.observe(this) { posts ->
@@ -48,33 +66,16 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+
         viewModel.edited.observe(this) { post ->
             if (post.id != 0L) {
-                binding.edit.setText(post.content)
-                binding.edit.focusAndShowKeyboard()
+                newPostLauncher.launch(post.content)
             }
+        }
+        binding.add.setOnClickListener {
+            newPostLauncher.launch(null)
+        }
 
-        }
-        binding.save.setOnClickListener {
-            binding.group.visibility = View.GONE
-            val text = binding.edit.text.toString().trim()
-            if (text.isEmpty()) {
-                Toast.makeText(this, R.string.empty_post, Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
-            viewModel.changeContentAndSave(text)
-
-            binding.edit.setText("")
-            binding.edit.clearFocus()
-            AndroidUtils.hideKeyboard(it)
-        }
-        binding.close.setOnClickListener {
-            viewModel.closeEdited(it)
-            binding.group.visibility = View.GONE
-            binding.edit.setText("")
-            binding.edit.clearFocus()
-            AndroidUtils.hideKeyboard(it)
-        }
 
     }
 }

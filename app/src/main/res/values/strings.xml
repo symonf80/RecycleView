@@ -7,4 +7,6 @@
     <string name="empty_post">Post is not empty</string>
     <string name="edit_message">Edit message</string>
     <string name="netology">Netology</string>
+    <string name="close">Close</string>
+    <string name="external_link">External link</string>
 </resources>

@@ -8,5 +8,6 @@ data class Post(
     val likes: Int,
     val repost:Int,
     val views:Int,
-    val likedByMe: Boolean
+    val likedByMe: Boolean,
+    val video: String?
 )
