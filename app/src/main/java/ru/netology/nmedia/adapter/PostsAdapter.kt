@@ -57,7 +57,13 @@ class PostViewHolder(
             share.text = service.counter(post.repost)
             tvViews.text = service.counter(post.views)
             likes.isChecked = post.likedByMe
-
+            if (post.video?.isNotEmpty() == true) {
+                play.visibility = View.VISIBLE
+                video.visibility = View.VISIBLE
+            }else{
+                play.visibility = View.GONE
+                video.visibility = View.GONE
+            }
             likes.setOnClickListener {
                 onInteractionListener.onLike(post)
 
@@ -71,15 +77,15 @@ class PostViewHolder(
             video.setOnClickListener {
                 onInteractionListener.onPlay(post)
             }
-            video.viewTreeObserver.apply {
-                if (post.video?.isNotEmpty() == true) {
-                    play.visibility = View.VISIBLE
-                    video.visibility = View.VISIBLE
-                }else{
-                    play.visibility = View.GONE
-                    video.visibility = View.GONE
-                }
-            }
+//            video.viewTreeObserver.apply {
+//                if (post.video?.isNotEmpty() == true) {
+//                    play.visibility = View.VISIBLE
+//                    video.visibility = View.VISIBLE
+//                }else{
+//                    play.visibility = View.GONE
+//                    video.visibility = View.GONE
+//                }
+//            }
             menu.setOnClickListener {
                 PopupMenu(it.context, it).apply {
                     inflate(R.menu.options_post)
