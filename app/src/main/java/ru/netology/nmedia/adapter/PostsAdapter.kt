@@ -11,14 +11,14 @@ import ru.netology.nmedia.R
 import ru.netology.nmedia.databinding.CardPostBinding
 import ru.netology.nmedia.repository.Post
 import ru.netology.nmedia.service.Service
-import ru.netology.nmedia.view.MainActivity
 
 interface OnInteractionListener {
     fun onLike(post: Post)
     fun onShare(post: Post)
     fun onRemove(post: Post)
     fun onEdit(post: Post)
-    fun onPlay(post:Post)
+    fun onPlay(post: Post)
+    fun onContent(post: Post)
 }
 
 
@@ -60,7 +60,7 @@ class PostViewHolder(
             if (post.video?.isNotEmpty() == true) {
                 play.visibility = View.VISIBLE
                 video.visibility = View.VISIBLE
-            }else{
+            } else {
                 play.visibility = View.GONE
                 video.visibility = View.GONE
             }
@@ -77,15 +77,10 @@ class PostViewHolder(
             video.setOnClickListener {
                 onInteractionListener.onPlay(post)
             }
-//            video.viewTreeObserver.apply {
-//                if (post.video?.isNotEmpty() == true) {
-//                    play.visibility = View.VISIBLE
-//                    video.visibility = View.VISIBLE
-//                }else{
-//                    play.visibility = View.GONE
-//                    video.visibility = View.GONE
-//                }
-//            }
+            content.setOnClickListener {
+                onInteractionListener.onContent(post)
+            }
+
             menu.setOnClickListener {
                 PopupMenu(it.context, it).apply {
                     inflate(R.menu.options_post)
