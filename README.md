@@ -1,3 +1,3 @@
 
-## Хранение данных
+## Fragments, FragmentManager
 
