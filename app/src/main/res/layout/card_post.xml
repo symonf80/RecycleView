@@ -12,7 +12,8 @@
         android:layout_height="@dimen/size48dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_launcher_foreground" />
+        app:srcCompat="@drawable/ic_launcher_foreground"
+        android:importantForAccessibility="no" />
 
     <TextView
         android:id="@+id/author"
@@ -51,7 +52,8 @@
         android:visibility="gone"
         android:background="@drawable/spring"
         app:layout_constraintTop_toBottomOf="@id/content"
-        app:layout_constraintBottom_toBottomOf="@+id/barrier2"/>
+        app:layout_constraintBottom_toBottomOf="@+id/barrier2"
+        android:importantForAccessibility="no" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/play"
@@ -122,7 +124,8 @@
         app:layout_constraintBottom_toBottomOf="@+id/share"
         app:layout_constraintEnd_toStartOf="@+id/tvViews"
         app:layout_constraintTop_toTopOf="@+id/share"
-        app:srcCompat="@drawable/views" />
+        app:srcCompat="@drawable/views"
+        android:importantForAccessibility="no" />
 
     <TextView
         android:id="@+id/tvViews"

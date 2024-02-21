@@ -47,7 +47,8 @@
         android:layout_marginBottom="8dp"
         android:background="@drawable/baseline_create_24"
         app:layout_constraintBottom_toBottomOf="@+id/group"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:importantForAccessibility="no" />
 
     <TextView
         android:id="@+id/editMes"
@@ -76,7 +77,8 @@
         android:layout_height="wrap_content"
         android:background="@drawable/round_close_24"
         app:layout_constraintBottom_toBottomOf="@+id/group"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:importantForAccessibility="no" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
