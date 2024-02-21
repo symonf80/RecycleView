@@ -50,7 +50,7 @@ class NewPostFragment : Fragment() {
         binding.bottomAppBar.setOnMenuItemClickListener { menuItem ->
             when (menuItem.itemId) {
                 cancel -> {
-                
+
                     findNavController().navigateUp()
                 }
 
