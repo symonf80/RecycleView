@@ -14,6 +14,7 @@ import ru.netology.nmedia.R
 import ru.netology.nmedia.databinding.FragmentOnePostBinding
 
 import ru.netology.nmedia.service.Service
+import ru.netology.nmedia.util.IdArg
 import ru.netology.nmedia.util.StringArg
 import ru.netology.nmedia.view.NewPostFragment.Companion.textArg
 import ru.netology.nmedia.viewModel.PostViewModel
@@ -23,7 +24,7 @@ class OnePostFragment : Fragment() {
     private val service = Service()
 
     companion object {
-        var Bundle.idArg: String? by StringArg
+        var Bundle.idArg: Long? by IdArg
 
     }
 
@@ -43,7 +44,7 @@ class OnePostFragment : Fragment() {
 
         val postId = arguments?.idArg ?: -1
         viewModel.data.observe(viewLifecycleOwner) { posts ->
-            val post = posts.find { it.id != postId } ?: return@observe
+            val post = posts.find { it.id == postId } ?: return@observe
             with(binding) {
                 author.text = post.author
                 published.text = post.published

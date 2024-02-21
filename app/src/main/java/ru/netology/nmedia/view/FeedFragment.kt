@@ -25,6 +25,7 @@ class FeedFragment : Fragment() {
     private val viewModel: PostViewModel by viewModels(
         ownerProducer = ::requireParentFragment
     )
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -61,7 +62,9 @@ class FeedFragment : Fragment() {
 
             override fun onContent(post: Post) {
                 findNavController().navigate(
-                    R.id.action_feedFragment_to_onePostFragment)
+                    R.id.action_feedFragment_to_onePostFragment,
+                    Bundle().apply
+                    { idArg = post.id })
             }
 
 

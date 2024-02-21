@@ -50,8 +50,7 @@ class NewPostFragment : Fragment() {
         binding.bottomAppBar.setOnMenuItemClickListener { menuItem ->
             when (menuItem.itemId) {
                 cancel -> {
-                    viewModel.changeContentAndSave(binding.edit.text.toString())
-
+                
                     findNavController().navigateUp()
                 }
 
