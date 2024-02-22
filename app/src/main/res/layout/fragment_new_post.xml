@@ -9,7 +9,7 @@
     <EditText
         android:id="@+id/edit"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="@android:color/transparent"
         android:gravity="top"
         android:hint="@string/post_text"
@@ -26,6 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         app:menu="@menu/new_post_edited"
+        
         />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
