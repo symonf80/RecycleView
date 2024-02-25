@@ -14,6 +14,7 @@ import ru.netology.nmedia.databinding.FragmentNewPostBinding
 import ru.netology.nmedia.util.AndroidUtils
 import ru.netology.nmedia.util.StringArg
 import ru.netology.nmedia.viewModel.PostViewModel
+import ru.netology.nmedia.viewModel.empty
 
 
 class NewPostFragment : Fragment() {
@@ -50,7 +51,7 @@ class NewPostFragment : Fragment() {
         binding.bottomAppBar.setOnMenuItemClickListener { menuItem ->
             when (menuItem.itemId) {
                 cancel -> {
-
+                    viewModel.edited.value = empty
                     findNavController().navigateUp()
                 }
 

@@ -2,12 +2,10 @@ package ru.netology.nmedia.view
 
 import android.content.Intent
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -20,6 +18,7 @@ import ru.netology.nmedia.repository.Post
 import ru.netology.nmedia.view.NewPostFragment.Companion.textArg
 import ru.netology.nmedia.view.OnePostFragment.Companion.idArg
 import ru.netology.nmedia.viewModel.PostViewModel
+
 
 class FeedFragment : Fragment() {
     private val viewModel: PostViewModel by viewModels(
